@@ -20,6 +20,14 @@
 			max-width: 100%;
 			height: auto;
 		}
+
+		figcaption {
+			margin-top: -1em;
+			color: $white;
+			text-align: center;
+			font-size: $default-font-size;
+			background-color: rgba($color: $black, $alpha: 0.7);
+		}
 	}
 
 	// Cropped

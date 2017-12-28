@@ -1,9 +1,19 @@
 .blocks-gallery-image {
 	position: relative;
 
+	.block-editable__inline-toolbar {
+		margin-top: -1em;
+	}
+
 	&.is-selected {
 		outline: 4px solid $blue-medium-500;
 		outline-offset: -4px;
+
+		figcaption {
+			margin-left: 3px;
+			margin-right: 3px;
+			margin-bottom: 4px;
+		}
 	}
 }
 
