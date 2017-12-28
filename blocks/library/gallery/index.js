@@ -33,19 +33,27 @@ registerBlockType( 'core/gallery', {
 			type: 'array',
 			default: [],
 			source: 'query',
-			selector: 'div.wp-block-gallery figure.blocks-gallery-image img',
+			selector: 'div.wp-block-gallery figure.blocks-gallery-image',
 			query: {
 				url: {
 					source: 'attribute',
+					selector: 'img',
 					attribute: 'src',
 				},
 				alt: {
 					source: 'attribute',
+					selector: 'img',
 					attribute: 'alt',
 				},
 				id: {
 					source: 'attribute',
+					selector: 'img',
 					attribute: 'data-id',
+				},
+				caption: {
+					type: 'array',
+					source: 'children',
+					selector: 'figcaption',
 				},
 			},
 		},
@@ -168,6 +176,7 @@ registerBlockType( 'core/gallery', {
 					return (
 						<figure key={ image.id || image.url } className="blocks-gallery-image">
 							{ href ? <a href={ href }>{ img }</a> : img }
+							{ image.caption && image.caption.length > 0 && <figcaption>{ image.caption }</figcaption> }
 						</figure>
 					);
 				} ) }
